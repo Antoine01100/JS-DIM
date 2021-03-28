@@ -1,0 +1,310 @@
+* {
+	margin: 0px;
+	padding: 0px;
+  font-family: "OpenSans-Regular", sans-serif;
+  list-style: none;
+}
+/*Sert à changer la police d'écriture, c'est plus jolie !*/
+@font-face {
+    font-family: "OpenSans-Regular";
+    src: url('../ttf/OpenSans-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: "BebasNeue-Regular";
+    src: url('../ttf/BebasNeue-Regular.ttf');
+  }
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url(../images/csgobg2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+.flex-element {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100vh; 
+}
+
+.particuleBG{
+    z-index: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100vh; 
+    width: 100vw;
+}
+
+/* --------------------LOGO D'info LIGHTBOX------------------------------------*/
+/*Logo informations en haut a droite*/
+.header-Container-Logo{
+    z-index: 2;
+    position: absolute;
+    top: 4%; 
+    left: 94%;
+  }
+  
+  .header-InfoLOGO{
+    height: 25px;
+    width: 25px;
+    transition: all 0.3s ease;
+  }
+  
+  .header-InfoLOGO:hover{
+   transform: rotate(360deg);
+  }
+
+  /**/
+/*Système pour la lightBox*/
+.thumbnail{
+    cursor: pointer;
+  }
+  
+  /*mettre le background noir transparent*/
+  #bg{
+    z-index: 1000;
+    overflow: hidden;
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  /*mettre l'image par dessus*/
+  #lightbox{
+    z-index: 1001;
+    position: fixed;
+    top: 30%;
+    height: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+    height: max-content;
+    width: max-content;
+    max-width: 750px;
+    max-height: 250px;
+    min-width: 50px;
+    min-height: 50px;
+    transition: all .1s ease-in-out;
+  }
+  
+  #lightbox img{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+  }
+  
+  /*petite croix pour supprimer le tout (en vrai on peut juste cliquer
+  sur le bg noir a coter aussi*/
+  #dismiss{
+    z-index: 1002;
+    position: fixed;
+    top: -10px;
+    right: -45px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    color: white;
+    border: none;
+    background-color: black;
+    cursor: pointer;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 12px;
+    padding-top: 3.2px;
+  }
+  
+  /*Texte explicatif pour l'information du header*/
+  #lightbox-text-LOGO{
+    position: absolute;
+    padding: 10px;
+    padding-top: 5%;
+
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0,0.96);
+  }
+  
+
+/*-------------présentation arme-----------------*/
+.audessus{
+    z-index: 1;
+}
+h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:white;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 50px;
+}
+
+.flex-ligne{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
+#caractéristiques1, #caractéristiques2{
+    display: flex;
+    flex-direction:column;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 10px;
+}
+
+.caraJS1, .caraJS2{
+  font-weight: bold;
+  color : white;
+  margin:5px;
+  border : solid 2px grey; 
+}
+
+#imgWeap{
+  width: 300px;
+  height: auto;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+#ButtonSuppr{
+  background-color: #d10909;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin-left: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+
+}
+
+/*-------------------FORMULAIRE---------------------------*/
+#addform{
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction:row;
+}
+
+.flex-ligneForm{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  margin-left: 10px;
+}
+
+input{
+  width: 75px;
+}
+
+.pform1{
+  margin: 1px;
+  border: solid 2px grey;
+}
+.pform2{
+  margin: 1px;
+  border: solid 2px grey;
+}
+.pform3{
+  margin: 1px;
+  border: solid 2px grey;
+}
+.pform4{
+  margin: 1px;
+  border: solid 2px grey;
+}
+
+#containerButt{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#ButtonAjout{
+  background-color: #09d148;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/*--------------SELECT-------------------------------*/
+/* Reset Select */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #2c3e50;
+    background-image: none;
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select */
+  .select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #2c3e50;
+    overflow: hidden;
+    border-radius: .25em;
+  }
+  select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #fff;
+    cursor: pointer;
+  }
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #34495e;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+  /* Transition */
+  .select:hover::after {
+    color: #f39c12;
+  }
+
+
+/*-----------------------FOOTER---------------------------*/
+ footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    background-color: black;
+    color : white
+} 

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/logo.png" />
+    <title>Antoine Bouvard JS</title>
+</head>
+
+<body>
+    <div class="flex-element" >
+        <section class="particuleBG" id="particles-js"></section>
+        <div class="header-Container-Logo">
+            <img class="img thumbnail header-InfoLOGO" src="images/image-information.png" alt="" logo-data-text="Bonjour Monsieur, 
+            Ce site est une présentation des armes de CS:GO, avec toutes leurs caractéristiques. Je ne savais pas trop quoi faire mais je ne voulais pas non plus prendre des données au hasard qui n’avaient pas de sens, alors voilà. 
+            J’ai essayé d’utiliser une base de données MongoDB. Dedans est enregistrée les armes, au formats JSON. On peut en ajouter ou supprimer avec le formulaire et les boutons. 
+            L’affichage se fait avec la liste sur le coter.
+            Le formulaire n’a pas de vérification (on peut cliquer sur ajouter même si tout n’est pas remplie) car pour tester ça va un peu plus vite, il y a 23 champs.
+            En plus du coter back-end j’ai voulu utiliser une librairie JS pour faire des particules et rendre ça un peu plus dynamique, ainsi qu’une lightBox en haut a droite, pour rajouter du front-end.
+            Connexion MongoDB : 'mongodb://localhost:27017' 
+            BDD : csgo / schema : weapons 
+            Le site : nodemon : http://localhost:1327/
+            Je vous ai sortie les données de mongoDB dans le fichier weapons.json pour les mettre facilement dans mongoDB, parce que je ne suis pas sur qu’il y ai tous sur github.
+            " />
+        </div>
+
+        <!----------------------CORPS------------------------------->
+        <section class="audessus">
+            <h1>Presentation des armes dans csgo</h1>
+
+                <div class="select">
+                    <select name="slct" id="slct">
+                    </select>
+                </div>
+
+            <div class="flex-ligne">
+                <img id="imgWeap" src="" alt=""/>
+                <article id="caractéristiques1"></article>
+                <article id="caractéristiques2"></article>
+
+                <p id="containerButt">
+                    <label></label>
+                    <button id="ButtonSuppr">SUPPRIMER</button>    
+                </p>
+            </div>
+        <!----------ADDFORM--------------------------------------------------->
+            <br>
+            <div id="addform" >
+                <div class="flex-ligneForm">
+                    <p class="pform1">
+                        <label>Nom</label>
+                        <input type="text", name="name">
+                    </p>
+                    <p class="pform2">
+                        <label>Type</label>
+                        <input type="text", name="Type">
+                    </p>
+                    <p class="pform3">
+                        <label>Prix</label>
+                        <input type="number", name="Prix">
+                    </p>
+                    <p class="pform4">
+                        <label>Vitesse de course</label>
+                        <input type="number", name="Vitesse">
+                    </p>
+                </div>
+               
+                <div class="flex-ligneForm">
+
+                    <p class="pform1">
+                        <label>Pénétration</label>
+                        <input type="number", name="Pénétration">
+                    </p>
+                    <p class="pform2">
+                        <label>Dégats</label>
+                        <input type="number", name="Dégats">
+                    </p>
+                    <p class="pform3">
+                        <label>Portée</label>
+                        <input type="number", name="Portée">
+                    </p>
+                    <p class="pform4">
+                        <label>Rechargement couché</label>
+                        <input type="number", name="Rechargementc">
+                    </p>
+                </div>
+
+                <div class="flex-ligneForm">
+                    <p class="pform1">
+                        <label>Rechargement debout</label>
+                        <input type="number", name="Rechargementd">
+                    </p>
+                    <p class="pform2">
+                        <label>Nombre de balles</label>
+                        <input type="number", name="Nombre">
+                    </p>
+                    <p class="pform3">
+                        <label>Diffusion</label>
+                        <input type="number", name="Diffusion">
+                    </p>
+                    <p class="pform4">
+                        <label>Imprécision couché</label>
+                        <input type="number", name="Imprécisionc">
+                    </p>
+                </div>
+
+                <div class="flex-ligneForm">
+                    <p class="pform1">
+                        <label>Imprécision debout</label>
+                        <input type="number", name="Imprécisiond">
+                    </p>
+                    <p class="pform2">
+                        <label>Imprécision en saut</label>
+                        <input type="number", name="Imprécisions">
+                    </p>
+                    <p class="pform3">
+                        <label>Imprécision en tire</label>
+                        <input type="number", name="Imprécisiont">
+                    </p>
+                    <p class="pform4">
+                        <label>Imprécision en mouvement</label>
+                        <input type="number", name="Imprécisionm">
+                    </p>
+                </div>
+
+                <div class="flex-ligneForm">
+                    <p class="pform1">
+                        <label>Imprécision en atterissant</label>
+                        <input type="number", name="Imprécisiona">
+                    </p>
+                    <p class="pform2">
+                        <label>Recul</label>
+                        <input type="number", name="Recul">
+                    </p>
+                    <p class="pform3">
+                        <label>Recul variance</label>
+                        <input type="number", name="Reculv">
+                    </p>
+                    <p class="pform4">
+                        <label>Recul magnitude</label>
+                        <input type="number", name="Reculm">
+                    </p>
+                </div>
+
+                <div class="flex-ligneForm">
+                    <p class="pform1">
+                        <label>Recul magnitude variance</label>
+                        <input type="number", name="Reculmv">
+                    </p>
+                    <p class="pform2">
+                        <label>Arme en auto</label>
+                        <input type="booleen", name="auto">
+                    </p>
+                    <p class="pform3">
+                        <label>Dégats sur l'armure</label>
+                        <input type="number", name="Dégatsarmure">
+                    </p>
+                </div>
+                <p id="containerButt">
+                    <label></label>
+                    <button id="ButtonAjout">AJOUTER</button>    
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p class="Footer-creativecommons">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" title="Ce lien vous redirigera sur le site creativecommons.org">
+                    <img alt="Licence Creative Commons" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png">
+                </a>
+                Cette œuvre est mise à disposition selon les termes de la 
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" title="Ce lien vous redirigera sur le site creativecommons.org">
+                    Licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 4.0 International
+                </a>
+            </p>
+        </footer>
+    
+    </div>
+
+	<script src="js/particles.js"></script>
+	<script src="js/app.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
